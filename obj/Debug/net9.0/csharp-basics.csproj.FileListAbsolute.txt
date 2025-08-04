@@ -1,0 +1,14 @@
+C:\Users\User\source\repos\csharp-basics\bin\Debug\net9.0\csharp-basics.exe
+C:\Users\User\source\repos\csharp-basics\bin\Debug\net9.0\csharp-basics.deps.json
+C:\Users\User\source\repos\csharp-basics\bin\Debug\net9.0\csharp-basics.runtimeconfig.json
+C:\Users\User\source\repos\csharp-basics\bin\Debug\net9.0\csharp-basics.dll
+C:\Users\User\source\repos\csharp-basics\bin\Debug\net9.0\csharp-basics.pdb
+C:\Users\User\source\repos\csharp-basics\obj\Debug\net9.0\csharp-basics.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\csharp-basics\obj\Debug\net9.0\csharp-basics.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\csharp-basics\obj\Debug\net9.0\csharp-basics.AssemblyInfo.cs
+C:\Users\User\source\repos\csharp-basics\obj\Debug\net9.0\csharp-basics.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\csharp-basics\obj\Debug\net9.0\csharp-basics.dll
+C:\Users\User\source\repos\csharp-basics\obj\Debug\net9.0\refint\csharp-basics.dll
+C:\Users\User\source\repos\csharp-basics\obj\Debug\net9.0\csharp-basics.pdb
+C:\Users\User\source\repos\csharp-basics\obj\Debug\net9.0\csharp-basics.genruntimeconfig.cache
+C:\Users\User\source\repos\csharp-basics\obj\Debug\net9.0\ref\csharp-basics.dll
