@@ -12,17 +12,17 @@ namespace csharp_basics.Repositories
     {
 
         private readonly List<EmployeeEntity> employees = new List<EmployeeEntity>();
-
-        public Task Add(EmployeeEntity employee)
+         
+        public void Add(EmployeeEntity employee)
         {
             employees.Add(employee);
 
-            return Task.CompletedTask;
+            
         }
 
-        public Task<List<EmployeeEntity>> GetAll()
-        {
-            return Task.FromResult(employees);
+        public List<EmployeeEntity> GetAll()
+        { 
+            return employees;
         }
     }
 }

@@ -3,7 +3,7 @@ using csharp_basics.Repositories;
 
 class Program
 {
-    static async Task Main(string[] args)
+    static void Main(string[] args)
     {
 
         EmployeeRepository employeeRepository = new EmployeeRepository();
@@ -11,8 +11,8 @@ class Program
         EmployeeService employeeService = new EmployeeService(employeeRepository);
 
 
-        await employeeService.AddEmployee();
-        await employeeService.GetAllEmployees();
+        employeeService.AddEmployee();
+        employeeService.GetAllEmployees(); 
 
 
 

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace csharp_basics.Interfaces
 {
-    internal interface IEmployeeRepository
+    internal interface IEmployeeRepository // (Interface)
     {
-        public Task Add(EmployeeEntity employee);
-        public Task<List<EmployeeEntity>> GetAll();
+        public void Add(EmployeeEntity employee);
+        public List<EmployeeEntity> GetAll();
     }
 }

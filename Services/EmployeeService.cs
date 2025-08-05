@@ -17,20 +17,20 @@ namespace csharp_basics.Services
             this.employeeRepository = employeeRepository;
         }
 
-        public async Task AddEmployee()
+        public void AddEmployee()
         {
             Console.WriteLine("\n==================================ADDING EMPLOYEE==================================");
             var employee = InputEmployee();
 
             
-            await employeeRepository.Add(employee);
+            employeeRepository.Add(employee);
         }
 
-        public async Task GetAllEmployees()
+        public void GetAllEmployees()
         {
 
             Console.WriteLine("\n==================================RETRIEVING EMPLOYEES==================================");
-            var employees = await employeeRepository.GetAll();
+            var employees = employeeRepository.GetAll();
 
             foreach (var emp in employees)
             {
@@ -59,9 +59,7 @@ namespace csharp_basics.Services
 
                 if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(department))
                 {
-                    Console.WriteLine("All fields are required. Please try again.\n");
-                    return InputEmployee();
-
+                    throw new ArgumentException("All fields are required.");
                 }
 
                 return new EmployeeEntity(id, name, email, department);
@@ -69,7 +67,8 @@ namespace csharp_basics.Services
             }
             catch (Exception ex)
             {
-                return Task.FromException<EmployeeEntity>(ex).Result;
+                Console.WriteLine($"Error: {ex.Message}. Please try again.\n");
+                return InputEmployee();
             }
         }
     }
