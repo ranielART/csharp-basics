@@ -17,16 +17,60 @@ namespace csharp_basics.Services
             this.employeeRepository = employeeRepository;
         }
 
-        public async Task addEmployeeAsync(EmployeeEntity employee)
+        public async Task AddEmployee()
         {
+            Console.WriteLine("\n==================================ADDING EMPLOYEE==================================");
+            var employee = InputEmployee();
+
+            
             await employeeRepository.Add(employee);
         }
 
-        public async Task<List<EmployeeEntity>> GetAllEmployeesAsync()
+        public async Task GetAllEmployees()
         {
-            return await employeeRepository.GetAll();
+
+            Console.WriteLine("\n==================================RETRIEVING EMPLOYEES==================================");
+            var employees = await employeeRepository.GetAll();
+
+            foreach (var emp in employees)
+            {
+                Console.WriteLine(emp.DisplayInfo());
+            }
         }
 
+        public EmployeeEntity InputEmployee()
+        {
+            try
+            {
+                Console.Write("Enter Employee ID: ");
+                string idInput = Console.ReadLine()!;
 
+                if (!int.TryParse(idInput, out int id))
+                {
+                    throw new ArgumentException("Employee ID must be a valid number.");
+                }
+
+                Console.Write("Enter Employee Name: ");
+                string name = Console.ReadLine()!;
+                Console.Write("Enter Employee Email: ");
+                string email = Console.ReadLine()!;
+                Console.Write("Enter Employee Department: ");
+                string department = Console.ReadLine()!;
+
+                if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(department))
+                {
+                    Console.WriteLine("All fields are required. Please try again.\n");
+                    return InputEmployee();
+
+                }
+
+                return new EmployeeEntity(id, name, email, department);
+
+            }
+            catch (Exception ex)
+            {
+                return Task.FromException<EmployeeEntity>(ex).Result;
+            }
+        }
     }
 }
