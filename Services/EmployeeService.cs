@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace csharp_basics.Services
 {
@@ -32,9 +33,9 @@ namespace csharp_basics.Services
             Console.WriteLine("\n==================================RETRIEVING EMPLOYEES==================================");
             var employees = employeeRepository.GetAll();
 
-            foreach (var emp in employees)
+            for (int i = 0; i < employees.Count; i++) // For Loop
             {
-                Console.WriteLine(emp.DisplayInfo());
+                Console.WriteLine(employees[i].DisplayInfo());
             }
         }
 
@@ -69,6 +70,35 @@ namespace csharp_basics.Services
             {
                 Console.WriteLine($"Error: {ex.Message}. Please try again.\n");
                 return InputEmployee();
+            }
+        }
+
+        public void FindEmployee()
+        {
+            try {
+            Console.WriteLine("\n==================================FINDING EMPLOYEE==================================");
+            Console.Write("Enter Employee ID: ");
+            string idInput = Console.ReadLine()!;
+
+            if (!int.TryParse(idInput, out int id)) {
+                   throw new ArgumentException("Employee ID must be a valid number.");
+            }
+            
+            var employee = employeeRepository.GetEmployeeById(id);
+            
+            if (employee == null){
+                
+            throw new ArgumentException($"No employee found with ID {id}.");
+
+            }
+
+            Console.WriteLine("Employee Found!");
+            Console.WriteLine($"Employee Details: {employee.DisplayInfo()}");
+                
+            } catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}. Please try again.\n");
+
             }
         }
     }

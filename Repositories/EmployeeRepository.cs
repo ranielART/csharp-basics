@@ -24,5 +24,12 @@ namespace csharp_basics.Repositories
         { 
             return employees;
         }
+
+        public EmployeeEntity GetEmployeeById(int id)
+        {
+            var employee = employees.FirstOrDefault(employee => employee.id == id)!;
+
+            return employee;
+        }
     }
 }

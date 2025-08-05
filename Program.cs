@@ -12,8 +12,8 @@ class Program
 
 
         employeeService.AddEmployee();
-        employeeService.GetAllEmployees(); 
-
+        employeeService.GetAllEmployees();
+        employeeService.FindEmployee();
 
 
 

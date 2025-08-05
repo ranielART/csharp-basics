@@ -11,5 +11,7 @@ namespace csharp_basics.Interfaces
     {
         public void Add(EmployeeEntity employee);
         public List<EmployeeEntity> GetAll();
-    }
+
+        public EmployeeEntity GetEmployeeById(int id); 
+    } 
 }
