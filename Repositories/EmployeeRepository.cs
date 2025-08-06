@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace csharp_basics.Repositories
 {
-    internal class EmployeeRepository : IEmployeeRepository
+    internal class EmployeeRepository : IEmployeeRepository 
     {
 
         private readonly List<EmployeeEntity> employees = new List<EmployeeEntity>();
@@ -18,6 +18,11 @@ namespace csharp_basics.Repositories
             employees.Add(employee);
 
             
+        }
+
+        public void Delete(EmployeeEntity employee)
+        {
+            employees.Remove(employee);
         }
 
         public List<EmployeeEntity> GetAll()
@@ -31,5 +36,13 @@ namespace csharp_basics.Repositories
 
             return employee;
         }
+
+        public EmployeeEntity GetEmployeeByEmail(string email)
+        {
+            var employee = employees.FirstOrDefault(employee => employee.email == email)!;
+
+            return employee;
+        }
+  
     }
 }

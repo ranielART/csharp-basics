@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 
 namespace csharp_basics.Models.Entities
 {
-    internal class EmployeeEntity : PersonEntity
+    internal class EmployeeEntity : PersonEntity // (Inheritance) EmployeeEntity inherits from PersonEntity
     {
 
-        public string department { get; private set; }
+        
+        public string position { get; private set; }
 
-        public EmployeeEntity(int id, string name, string email, string department) : base(id, name, "")
+        public EmployeeEntity(int id, string name, string email,  string position) : base(id, name, "")
         {
-            this.department = department;
+            this.position = position;
+            
             SetEmail(email); // Ensure email is set through the method to validate it
         }
 
-
-
         public override string DisplayInfo() // (Method Overriding)
         {
-            return $"ID: {this.id}, Name: {this.name}, Email: {this.email}, Department: {this.department}"; // String interpolation for displaying employee details
+            return $"ID: {this.id}, Name: {this.name}, Email: {this.email}, Position: {this.position}"; // String interpolation for displaying employee details
         }
 
         public override void SetEmail(string email)
@@ -37,10 +37,10 @@ namespace csharp_basics.Models.Entities
             }
         }
 
-        public void SetDepartment(string department)
+        public void SetPosition(string position)
         {
-            this.department = department;
-        }
+            this.position = position;
 
+        }
     }
 }
