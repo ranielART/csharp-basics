@@ -150,7 +150,7 @@ namespace csharp_basics.Services
             Console.WriteLine("\n==================================FINDING EMPLOYEE==================================");
             Console.Write("Enter Employee ID: ");
             string idInput = Console.ReadLine()!;
-
+            
             if (!int.TryParse(idInput, out int id)) {
                    throw new ArgumentException("Employee ID must be a valid number.");
             }
@@ -159,7 +159,7 @@ namespace csharp_basics.Services
             
             if (employee == null){
                 
-            throw new ArgumentException($"No employee found with ID {id}.");
+            throw new KeyNotFoundException($"No employee found with ID {id}.");
 
             }
 

@@ -76,7 +76,7 @@ namespace csharp_basics.Services
 
                 if (!int.TryParse(input, out int selection) || selection < 1 || selection > employees.Count)
                 {
-                    throw new ArgumentException("Invalid selection. Please enter a valid number from the list.");
+                    throw new KeyNotFoundException("Invalid selection. Please enter a valid number from the list.");
                 }
 
                 var selected = employees[selection - 1];
