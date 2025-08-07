@@ -18,6 +18,10 @@ namespace csharp_basics.Services
             this.positionService = positionService;
         }
 
+        public delegate Task PayrollEventHandler(PayrollEntity payroll);
+        public event PayrollEventHandler? PayrollProcessed;
+        
+
         public void PayrollMenu()
         {
             while (true)
@@ -105,6 +109,7 @@ namespace csharp_basics.Services
 
                     Console.WriteLine($"\nPayment successful!");
                     Console.WriteLine(payroll.DisplayEmployeePay());
+                    PayrollProcessed?.Invoke(payroll);
                 }
                 else
                 {
