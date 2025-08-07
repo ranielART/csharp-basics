@@ -26,13 +26,13 @@ namespace csharp_basics.Services
             this.employeeRepository = employeeRepository;
         }
 
-        
+
         public List<string> GetAllPositions()
         {
             return positions.Keys.ToList();
         }
 
-        
+
         public decimal GetSalaryByPosition(string position)
         {
             if (positions.TryGetValue(position, out decimal salary))
@@ -41,8 +41,6 @@ namespace csharp_basics.Services
             }
             throw new ArgumentException($"Position '{position}' not found.");
         }
-
-        
         public List<EmployeeEntity> GetEmployeesByPosition(string position)
         {
             return employeeRepository.GetAll()
@@ -50,7 +48,6 @@ namespace csharp_basics.Services
                                      .ToList();
         }
 
-        
         public string SelectPositionFromMenu()
         {
             var positionList = GetAllPositions();

@@ -4,3 +4,4 @@
 *.suo
 *.userosscache
 *.sln.docstates
+bin/Debug/net9.0/log.txt

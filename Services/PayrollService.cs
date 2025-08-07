@@ -20,7 +20,7 @@ namespace csharp_basics.Services
 
         public delegate Task PayrollEventHandler(PayrollEntity payroll);
         public event PayrollEventHandler? PayrollProcessed;
-        
+
 
         public void PayrollMenu()
         {
@@ -43,7 +43,7 @@ namespace csharp_basics.Services
                         break;
                     case "3":
                         Console.WriteLine("Returning to main menu...\n");
-                        return; 
+                        return;
                     default:
                         Console.WriteLine("Invalid choice. Please try again.");
                         break;

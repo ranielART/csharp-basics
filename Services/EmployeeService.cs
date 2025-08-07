@@ -4,6 +4,7 @@ using csharp_basics.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -23,7 +24,7 @@ namespace csharp_basics.Services
 
 
         public delegate Task EmployeeEventHandler(EmployeeEntity employee, string logOperation);
-        
+
         public event EmployeeEventHandler? EmployeeLog;
         public event EmployeeEventHandler? EmployeeUpdated;
         public event EmployeeEventHandler? EmployeeDeleted;
@@ -72,13 +73,13 @@ namespace csharp_basics.Services
 
 
         public void AddEmployee()
-        {   
+        {
             try
             {
-              Console.WriteLine("\n==================================ADDING EMPLOYEE==================================");
+                Console.WriteLine("\n==================================ADDING EMPLOYEE==================================");
                 var employee = InputEmployee();
 
-                if(employeeRepository.GetEmployeeById(employee.id) != null)
+                if (employeeRepository.GetEmployeeById(employee.id) != null)
                 {
                     throw new ArgumentException("This ID Already Exists!");
                 }
@@ -88,14 +89,15 @@ namespace csharp_basics.Services
                     throw new ArgumentException("This Email Already Exists!");
                 }
 
-            employeeRepository.Add(employee);
-            Console.WriteLine($"Employee {employee.name} is added successfully!");
-            EmployeeLog?.Invoke(employee, "Added");
-            } catch (Exception ex)
+                employeeRepository.Add(employee);
+                Console.WriteLine($"Employee {employee.name} is added successfully!");
+                EmployeeLog?.Invoke(employee, "Added");
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message} Please try again.\n");
             }
-           
+
         }
 
         public void GetAllEmployees()
@@ -104,10 +106,19 @@ namespace csharp_basics.Services
             Console.WriteLine("\n==================================RETRIEVING EMPLOYEES==================================");
             var employees = employeeRepository.GetAll();
 
-            foreach (var employee in employees) // For each loop
+            if (employees.Count == 0)
             {
-                Console.WriteLine(employee.DisplayInfo());
+                Console.WriteLine("No employees found.");
             }
+            else
+            {
+                foreach (var employee in employees) // For each loop
+                {
+                    Console.WriteLine(employee.DisplayInfo());
+                }
+
+            }
+
         }
 
         public EmployeeEntity InputEmployee()
@@ -126,14 +137,14 @@ namespace csharp_basics.Services
                 string name = Console.ReadLine()!;
                 Console.Write("Enter Employee Email: ");
                 string email = Console.ReadLine()!;
-                
+
                 string position = positionService.SelectPositionFromMenu();
 
                 if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(position))
                 {
                     throw new ArgumentException("All fields are required.");
                 }
-                
+
                 return new EmployeeEntity(id, name, email, position);
 
             }
@@ -146,88 +157,93 @@ namespace csharp_basics.Services
 
         public void FindEmployee()
         {
-            try {
-            Console.WriteLine("\n==================================FINDING EMPLOYEE==================================");
-            Console.Write("Enter Employee ID: ");
-            string idInput = Console.ReadLine()!;
-            
-            if (!int.TryParse(idInput, out int id)) {
-                   throw new ArgumentException("Employee ID must be a valid number.");
-            }
-            
-            var employee = employeeRepository.GetEmployeeById(id);
-            
-            if (employee == null){
-                
-            throw new KeyNotFoundException($"No employee found with ID {id}.");
+            try
+            {
+                Console.WriteLine("\n==================================FINDING EMPLOYEE==================================");
+                Console.Write("Enter Employee ID: ");
+                string idInput = Console.ReadLine()!;
 
-            }
+                if (!int.TryParse(idInput, out int id))
+                {
+                    throw new ArgumentException("Employee ID must be a valid number.");
+                }
 
-            Console.WriteLine("Employee Found!");
-            Console.WriteLine($"Employee Details: {employee.DisplayInfo()}");
-            EmployeeLog?.Invoke(employee, "Retrieved");
-            } catch (Exception ex)
+                var employee = employeeRepository.GetEmployeeById(id);
+
+                if (employee == null)
+                {
+
+                    throw new KeyNotFoundException($"No employee found with ID {id}.");
+
+                }
+
+                Console.WriteLine("Employee Found!");
+                Console.WriteLine($"Employee Details: {employee.DisplayInfo()}");
+                EmployeeLog?.Invoke(employee, "Retrieved");
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message} Please try again.\n");
             }
 
         }
         public void UpdateEmployee()
-        {   
+        {
 
             try
             {
 
-            GetAllEmployees();
-            Console.WriteLine("\n==================================UPDATING EMPLOYEE==================================");
-            Console.Write("Enter Employee ID to edit: ");
-            string idInput = Console.ReadLine()!;
-            
-            if (!int.TryParse(idInput, out int id))
-            {
-                throw new ArgumentException("Employee ID must be a valid number.");
-            }
+                GetAllEmployees();
+                Console.WriteLine("\n==================================UPDATING EMPLOYEE==================================");
+                Console.Write("Enter Employee ID to edit: ");
+                string idInput = Console.ReadLine()!;
 
-            var employee = employeeRepository.GetEmployeeById(id);
+                if (!int.TryParse(idInput, out int id))
+                {
+                    throw new ArgumentException("Employee ID must be a valid number.");
+                }
 
-            if (employee == null)
-            {
-                throw new ArgumentException($"No employee found with ID {id}.");
-            }
+                var employee = employeeRepository.GetEmployeeById(id);
 
-            Console.Write("Enter new employee name (Leave blank to not change): ");
-            string newName = Console.ReadLine()!;
-            Console.Write("Enter new employee email: (Leave blank to not change): ");
-            string newEmail = Console.ReadLine()!;
-            Console.Write("Enter new employee poistion: (Leave blank to not change): ");
-            string newPosition = positionService.SelectPositionFromMenu();
+                if (employee == null)
+                {
+                    throw new ArgumentException($"No employee found with ID {id}.");
+                }
+
+                Console.Write("Enter new employee name (Leave blank to not change): ");
+                string newName = Console.ReadLine()!;
+                Console.Write("Enter new employee email: (Leave blank to not change): ");
+                string newEmail = Console.ReadLine()!;
+                Console.Write("Enter new employee poistion: (Leave blank to not change): ");
+                string newPosition = positionService.SelectPositionFromMenu();
 
 
                 //    if (string.IsNullOrWhiteSpace(newName) || string.IsNullOrWhiteSpace(newEmail) || string.IsNullOrWhiteSpace(newPosition))
                 //{
                 //    throw new ArgumentException("All fields are required.");
                 //}
-            Console.WriteLine(string.IsNullOrWhiteSpace(newName));
-                
-            //Console.WriteLine($"Previous Data - Name: {employee.name}, Email: {employee.email}, Position: {employee.position}");
-            //Console.WriteLine($"New Data - Name: {newName}, Email: {newEmail}, Position: {newPosition}");
-            Console.Write("Save Changes? y or n: ");
-            string choice = Console.ReadLine()!;
-            if (choice.ToLower() == "y")
-            {
-                employee.SetEmail(string.IsNullOrWhiteSpace(newEmail) ? employee.email : newEmail);
-                employee.SetName(string.IsNullOrWhiteSpace(newName) ? employee.name : newName);
-                employee.SetPosition(string.IsNullOrWhiteSpace(newPosition) ? employee.position : newPosition );
-                Console.WriteLine("Employee updated successfully!\n");
-                EmployeeLog?.Invoke(employee, "Updated");
+                Console.WriteLine(string.IsNullOrWhiteSpace(newName));
+
+                //Console.WriteLine($"Previous Data - Name: {employee.name}, Email: {employee.email}, Position: {employee.position}");
+                //Console.WriteLine($"New Data - Name: {newName}, Email: {newEmail}, Position: {newPosition}");
+                Console.Write("Save Changes? y or n: ");
+                string choice = Console.ReadLine()!;
+                if (choice.ToLower() == "y")
+                {
+                    employee.SetEmail(string.IsNullOrWhiteSpace(newEmail) ? employee.email : newEmail);
+                    employee.SetName(string.IsNullOrWhiteSpace(newName) ? employee.name : newName);
+                    employee.SetPosition(string.IsNullOrWhiteSpace(newPosition) ? employee.position : newPosition);
+                    Console.WriteLine("Employee updated successfully!\n");
+                    EmployeeLog?.Invoke(employee, "Updated");
                 }
-            else
-            {
-                Console.WriteLine("Changes not saved.\n");
+                else
+                {
+                    Console.WriteLine("Changes not saved.\n");
+                }
+
+
             }
-
-
-            } catch (Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message} Please try again.\n");
             }
@@ -253,7 +269,7 @@ namespace csharp_basics.Services
                 }
                 Console.WriteLine($"Are you sure you want to delete the following employee? {employee.DisplayInfo()} (y/n)");
                 string choice = Console.ReadLine()!;
-                
+
                 if (choice.ToLower() == "y")
                 {
                     employeeRepository.Delete(employee);

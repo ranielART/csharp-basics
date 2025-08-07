@@ -9,7 +9,6 @@ namespace csharp_basics.Interfaces
 {
     internal interface IEmployeeRepository // (Interface)
     {   
-
         public void Add(EmployeeEntity employee);
         public List<EmployeeEntity> GetAll();
 

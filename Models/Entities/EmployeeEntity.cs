@@ -9,14 +9,12 @@ namespace csharp_basics.Models.Entities
 {
     internal class EmployeeEntity : PersonEntity // (Inheritance) EmployeeEntity inherits from PersonEntity
     {
-
-        
         public string position { get; private set; }
 
-        public EmployeeEntity(int id, string name, string email,  string position) : base(id, name, "")
+        public EmployeeEntity(int id, string name, string email, string position) : base(id, name, "")
         {
             this.position = position;
-            
+
             SetEmail(email); // Ensure email is set through the method to validate it
         }
 
@@ -40,7 +38,6 @@ namespace csharp_basics.Models.Entities
         public void SetPosition(string position)
         {
             this.position = position;
-
         }
     }
 }

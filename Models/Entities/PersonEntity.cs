@@ -9,7 +9,6 @@ namespace csharp_basics.Models.Entities
 {
     internal abstract class PersonEntity
     {
-
         public PersonEntity(int id, string name, string email) // (Constructor) Initializes a new instance of the PersonEntity class with id, name, and email
         {
             this.id = id;

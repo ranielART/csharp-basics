@@ -1,2 +1,11 @@
 
 [EMPLOYEE] Added employee: Art (ID: 2) | 2025-08-07 09:55:41 AM
+[EMPLOYEE] Added employee: Ran (ID: 1) | 2025-08-07 01:07:55 PM
+[EMPLOYEE] Added employee: Ark (ID: 2) | 2025-08-07 01:08:20 PM
+[EMPLOYEE] Added employee: Ian (ID: 3) | 2025-08-07 01:08:50 PM
+[EMPLOYEE] Retrieved employee: Ran (ID: 1) | 2025-08-07 01:09:00 PM
+[EMPLOYEE] Updated employee: Raniel (ID: 1) | 2025-08-07 01:09:20 PM
+[EMPLOYEE] Updated employee: Ian (ID: 3) | 2025-08-07 01:09:49 PM
+[EMPLOYEE] Deleted employee: Ian (ID: 3) | 2025-08-07 01:10:07 PM
+[PAYROLL] Paid: Ark (ID: 2) - ₱40,000.00 | 2025-08-07 01:10:49 PM
+[PAYROLL] Paid: Raniel (ID: 1) - ₱80,000.00 | 2025-08-07 01:11:00 PM
