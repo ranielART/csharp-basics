@@ -1,17 +1,9 @@
-
-[EMPLOYEE] Added employee: Art (ID: 2) | 2025-08-07 09:55:41 AM
-[EMPLOYEE] Added employee: Ran (ID: 1) | 2025-08-07 01:07:55 PM
-[EMPLOYEE] Added employee: Ark (ID: 2) | 2025-08-07 01:08:20 PM
-[EMPLOYEE] Added employee: Ian (ID: 3) | 2025-08-07 01:08:50 PM
-[EMPLOYEE] Retrieved employee: Ran (ID: 1) | 2025-08-07 01:09:00 PM
-[EMPLOYEE] Updated employee: Raniel (ID: 1) | 2025-08-07 01:09:20 PM
-[EMPLOYEE] Updated employee: Ian (ID: 3) | 2025-08-07 01:09:49 PM
-[EMPLOYEE] Deleted employee: Ian (ID: 3) | 2025-08-07 01:10:07 PM
-[PAYROLL] Paid: Ark (ID: 2) - ₱40,000.00 | 2025-08-07 01:10:49 PM
-[PAYROLL] Paid: Raniel (ID: 1) - ₱80,000.00 | 2025-08-07 01:11:00 PM
-[EMPLOYEE] Added employee: ran (ID: 6) | 2025-08-08 10:33:26 AM
-[EMPLOYEE] Retrieved employee: ran (ID: 6) | 2025-08-08 10:36:48 AM
-[EMPLOYEE] Added employee: Ran (ID: 1) | 2025-08-08 10:44:09 AM
-[EMPLOYEE] Added employee: Raneil (ID: 1) | 2025-08-08 10:45:27 AM
-[PAYROLL] Paid: Raneil (ID: 1) - ₱65,000.00 | 2025-08-08 10:45:45 AM
-[PAYROLL] Paid: Raneil (ID: 1) - ₱65,000.00 | 2025-08-08 10:46:12 AM
+[EMPLOYEE] Added employee: Test (ID: 0) | 2025-08-08 03:23:01 PM
+[EMPLOYEE] Added employee: Raniel (ID: 1) | 2025-08-08 03:40:13 PM
+[EMPLOYEE] Added employee: Ian (ID: 2) | 2025-08-08 03:40:54 PM
+[EMPLOYEE] Retrieved employee: Raniel (ID: 1) | 2025-08-08 03:41:17 PM
+[EMPLOYEE] Updated employee: Art (ID: 1) | 2025-08-08 03:41:48 PM
+[EMPLOYEE] Deleted employee: Ian (ID: 2) | 2025-08-08 03:42:01 PM
+[PAYROLL] Paid: Art (ID: 1) - ₱80,000.00 | 2025-08-08 03:42:45 PM
+[EMPLOYEE] Added employee: Ian (ID: 2) | 2025-08-08 03:43:22 PM
+[PAYROLL] Paid: Ian (ID: 2) - ₱15,000.00 | 2025-08-08 03:43:43 PM

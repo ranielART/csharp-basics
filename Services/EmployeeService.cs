@@ -263,7 +263,7 @@ namespace csharp_basics.Services
                 {
                     throw new ArgumentException($"No employee found with ID {id}.");
                 }
-                Console.WriteLine($"Are you sure you want to delete the following employee? {employee.DisplayInfo()} (y/n)");
+                Console.WriteLine($"Are you sure you want to delete the following employee? {employee.DisplayInfo()} y or n:");
                 string choice = Console.ReadLine()!;
 
                 if (choice.ToLower() == "y")

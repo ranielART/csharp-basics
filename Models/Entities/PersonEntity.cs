@@ -9,26 +9,26 @@ namespace csharp_basics.Models.Entities
 {
     internal abstract class PersonEntity
     {
-        public PersonEntity(int id, string name, string email) // (Constructor) Initializes a new instance of the PersonEntity class with id, name, and email
+        public PersonEntity(int id, string name, string email) 
         {
             this.id = id;
             this.email = email;
             this.name = name;
         }
 
-        public int id { get;  private set; } // (Encapsulation)
-        public string name { get; private set; } // (Encapsulation) Properties with private setters to restrict modification
+        public int id { get;  private set; } 
+        public string name { get; private set; } 
 
-        public string email { get; private set; } // (Encapsulation)
+        public string email { get; private set; } 
 
-        public abstract string DisplayInfo(); // (Abstraction) Abstract method to be implemented by derived classes for displaying person details
+        public abstract string DisplayInfo(); 
 
         public void SetName(string name) 
         {
             this.name = name;
         }
 
-        public virtual void SetEmail(string email) // (Polymorphism)
+        public virtual void SetEmail(string email) 
         {
             this.email = email;
         }
