@@ -28,7 +28,7 @@ class Program
 
         while (true)
         {
-            Console.WriteLine("\n=========== MAIN MENU ===========");
+            Console.WriteLine("\n==================================MAIN MENU==================================");
             Console.WriteLine("1. Employee Management");
             Console.WriteLine("2. Payroll System");
             Console.WriteLine("3. Exit");

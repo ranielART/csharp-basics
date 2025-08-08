@@ -29,7 +29,8 @@ namespace csharp_basics.Services
                 Console.WriteLine("\n========== PAYROLL SYSTEM ==========");
                 Console.WriteLine("1. Pay an Employee");
                 Console.WriteLine("2. View Payroll History");
-                Console.WriteLine("3. Exit to Main Menu");
+                Console.WriteLine("3. View Payroll History by Employee");
+                Console.WriteLine("4. Exit to Main Menu");
                 Console.Write("Select an option: ");
                 string input = Console.ReadLine()!;
 
@@ -42,6 +43,9 @@ namespace csharp_basics.Services
                         ViewPayrollHistory();
                         break;
                     case "3":
+                        ViewPayrollHistoryByEmployee();
+                        break;
+                    case "4":
                         Console.WriteLine("Returning to main menu...\n");
                         return;
                     default:
@@ -63,7 +67,7 @@ namespace csharp_basics.Services
                     return;
                 }
 
-                Console.WriteLine("\n============== PAY EMPLOYEE ==============");
+                Console.WriteLine("\n==================================PAY EMPLOYEE==================================");
 
                 for (int i = 0; i < employees.Count; i++)
                 {
@@ -128,7 +132,7 @@ namespace csharp_basics.Services
             {
                 var records = payrollRepository.GetAll();
 
-                Console.WriteLine("\n============== PAYROLL HISTORY ==============");
+                Console.WriteLine("\n==================================PAYROLL HISTORY==================================");
 
                 if (records.Count == 0)
                 {
@@ -148,5 +152,44 @@ namespace csharp_basics.Services
                 Console.WriteLine($"\nError loading payroll history: {ex.Message}\n");
             }
         }
+
+        public void ViewPayrollHistoryByEmployee()
+        {
+            try
+            {
+
+                Console.WriteLine("\n==================================PAYROLL HISTORY==================================");
+
+                Console.Write("Enter the Emplyee ID: ");
+                string idInput = Console.ReadLine()!;
+
+                if (!int.TryParse(idInput, out int id))
+                {
+                    throw new ArgumentException("Employee ID must be a valid number.");
+                }
+
+                var records = payrollRepository.GetAll().Where(r => r.employee_id == id);
+
+                if (!records.Any())
+                {
+                    throw new ArgumentException($"No payroll records found for Employee ID: {id}.\n");
+
+                }
+
+                Console.WriteLine($"Payroll records for Employee ID: {id}");
+                foreach (var record in records)
+                {
+                    Console.WriteLine(record.DisplayEmployeePay());
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"\nError: {ex.Message}\n");
+            }
+
+        }
+
+
     }
 }

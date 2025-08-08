@@ -11,7 +11,7 @@ namespace csharp_basics.Models.Entities
     {
         public string position { get; private set; }
 
-        public EmployeeEntity(int id, string name, string email, string position) : base(id, name, "")
+        public EmployeeEntity(int id, string name, string email, string position) : base(id, name, email)
         {
             this.position = position;
 
@@ -20,7 +20,7 @@ namespace csharp_basics.Models.Entities
 
         public override string DisplayInfo() // (Method Overriding)
         {
-            return $"ID: {this.id}, Name: {this.name}, Email: {this.email}, Position: {this.position}"; // String interpolation for displaying employee details
+            return $"ID: {this.id} | Name: {this.name} | Email: {this.email} | Position: {this.position}"; // String interpolation for displaying employee details
         }
 
         public override void SetEmail(string email)
@@ -31,7 +31,7 @@ namespace csharp_basics.Models.Entities
             }
             else
             {
-                throw new ArgumentException("Email must be a valid company email ending with @company.com.ph"); // Throwing a custom exception if email validation fails
+                throw new ArgumentException("Email must be a valid company email ending with @company.com.ph."); // Throwing a custom exception if email validation fails
             }
         }
 

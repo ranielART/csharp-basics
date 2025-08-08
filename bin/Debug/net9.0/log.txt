@@ -9,3 +9,9 @@
 [EMPLOYEE] Deleted employee: Ian (ID: 3) | 2025-08-07 01:10:07 PM
 [PAYROLL] Paid: Ark (ID: 2) - ₱40,000.00 | 2025-08-07 01:10:49 PM
 [PAYROLL] Paid: Raniel (ID: 1) - ₱80,000.00 | 2025-08-07 01:11:00 PM
+[EMPLOYEE] Added employee: ran (ID: 6) | 2025-08-08 10:33:26 AM
+[EMPLOYEE] Retrieved employee: ran (ID: 6) | 2025-08-08 10:36:48 AM
+[EMPLOYEE] Added employee: Ran (ID: 1) | 2025-08-08 10:44:09 AM
+[EMPLOYEE] Added employee: Raneil (ID: 1) | 2025-08-08 10:45:27 AM
+[PAYROLL] Paid: Raneil (ID: 1) - ₱65,000.00 | 2025-08-08 10:45:45 AM
+[PAYROLL] Paid: Raneil (ID: 1) - ₱65,000.00 | 2025-08-08 10:46:12 AM

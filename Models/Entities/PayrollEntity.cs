@@ -20,7 +20,7 @@ namespace csharp_basics.Models.Entities
             this.amount_paid = amount_paid;
             this.date_paid = DateTime.Now;
         }
-
+        
         public string DisplayEmployeePay()
         {
             return $"Payroll ID: {id} | Employee: {employee_name} (ID: {employee_id}) | " +

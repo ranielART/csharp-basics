@@ -26,15 +26,13 @@ namespace csharp_basics.Services
         public delegate Task EmployeeEventHandler(EmployeeEntity employee, string logOperation);
 
         public event EmployeeEventHandler? EmployeeLog;
-        public event EmployeeEventHandler? EmployeeUpdated;
-        public event EmployeeEventHandler? EmployeeDeleted;
-        public event EmployeeEventHandler? EmployeeViewed;
+       
 
         public void EmployeeMenu()
         {
             while (true)
             {
-                Console.WriteLine("\n======= EMPLOYEE MANAGEMENT =======");
+                Console.WriteLine("\n==================================EMPLOYEE MANAGEMENT==================================");
                 Console.WriteLine("1. Add Employee");
                 Console.WriteLine("2. View All Employees");
                 Console.WriteLine("3. Find Employee by ID");
@@ -240,8 +238,6 @@ namespace csharp_basics.Services
                 {
                     Console.WriteLine("Changes not saved.\n");
                 }
-
-
             }
             catch (Exception ex)
             {
