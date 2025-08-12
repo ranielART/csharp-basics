@@ -25,7 +25,6 @@ class Program
         payrollService.PayrollProcessed += async (payroll) =>
             await logService.LogAsync("PAYROLL", $"Paid: {payroll.employee_name} (ID: {payroll.employee_id}) - ₱{payroll.amount_paid:N2}");
 
-
         while (true)
         {
             Console.WriteLine("\n==================================MAIN MENU==================================");
